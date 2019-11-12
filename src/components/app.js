@@ -1,11 +1,40 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+
+import DayOfWeek from "./dayOfWeek";
 
 export default class App extends Component {
+  renderDays = () => {
+    const days = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ];
+    return days.map(day => <DayOfWeek day={day} />);
+  };
+
   render() {
     return (
-      <div className='app'>
-        <h1>DevCamp React Starter</h1>
-        <h2>React Redux Router</h2>
+      <div className="app">
+        <div className="header">
+          <button>Previous Month</button>
+          <h1>November</h1>
+          <button>Next Month</button>
+        </div>
+
+        <div className="calendar-wrapper">
+          <div className="days-wrapper"></div>
+          {this.renderDays()}
+        </div>
+
+        <div className="blocks-wrapper"></div>
+
+        <div className="footer">
+          <h1>2019</h1>
+        </div>
       </div>
     );
   }
